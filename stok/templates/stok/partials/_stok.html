@@ -1,0 +1,22 @@
+{% load static %}
+
+<div class="card mb-3">
+    <div class="row">
+        <div class="col-md-3">
+            <img src="{% static 'img/'|add:stok.image %}" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-9">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <a href="{% url 'stok_details' stok.id %}">
+                       {{ stok.title}} 
+                    </a>   
+                    
+                </h5>
+                <p class="card-text">{{ stok.description}}</p>
+                </h5>
+            </div>
+        </div>
+
+    </div>
+</div>

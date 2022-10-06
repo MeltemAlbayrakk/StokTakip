@@ -5,6 +5,20 @@
 
 {% block content %}
 
-<h1>Stoks</h1>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-3">
+            {% include 'partials/_categories.html  '%}
+        </div>
+        <div class="col-9">
+            <h1>All Stoks</h1>
+            <hr>
+            {% for stok in stoks %}
+                {% if stok.is_active %}
+                    {% include 'stok/partials/_stok.html'  %}
+                {% endif %}
+            {% endfor %}
+        </div>
+
 
 {% endblock %}

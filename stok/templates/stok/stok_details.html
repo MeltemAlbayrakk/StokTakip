@@ -5,6 +5,16 @@
 
 {% block content %}
 
-    <h1>Stok Details: {{ id }}</h1>
 
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-3">
+                {% include 'partials/_categories.html  '%}
+            </div>
+            <div class="col-9">
+                <h1>Stok Details: {{ id }}</h1>
+                <hr>
+
+            </div>
+    
 {% endblock %}

@@ -9,10 +9,10 @@ from .import views
 
 
 urlpatterns = [
-    path("",views.index),
+    path("",views.index,name="home"),
     path("index",views.index),
-    path("stoks",views.stoks),
-    path("stoks/<int:id>",views.stok_details),
+    path("stoks",views.stoks,name="stoks"),
+    path("stoks/<int:id>",views.stok_details,name="stok_details"),
     
 
 ]

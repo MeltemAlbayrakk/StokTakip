@@ -14,37 +14,8 @@
         {% block title %} {% endblock %}|Stok Takip</title>
 </head>
 <body>
-
-    <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
-        <div class="container">
-            <a  class="navbar-brand" href="">Stokapp</a>
-            <ul class="navbar-nav me-auto ">
-                <li class="nav-item">
-                    <a class="nav-link" href="">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="">Stoks</a>
-                </li>
-            </ul>
-        </div>
-        </nav>
-
-    <div class="container mt-3">
-        <div class="row">
-            <div class="col-3">
-                <div class="list-group">
-                    <a class="list-group-item list-group-item-action" href="">Programlama</a>
-                    <a class="list-group-item list-group-item-action" href="">Web programlama</a>
-                    <a class="list-group-item list-group-item-action" href="">Mobil uygulama </a>
-
-                </div>
-            </div>
-            <div class="col-9">
-                içerik  
-            </div>
-        </div>
-    </div>
-
+    {% include 'partials/_navbar.html  ' %}
+                        
     {% block content %}    {% endblock%}
 
     <script src="{% static 'js/bootstrap.min.js' % }"></script>
