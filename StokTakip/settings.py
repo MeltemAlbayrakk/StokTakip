@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'tr-tr'
 
 TIME_ZONE = 'UTC'
 
@@ -122,6 +122,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS =[BASE_DIR / "static"]
+
+MEDIA_ROOT = BASE_DIR / "uploads"
+MEDIA_URL = "/images/"
 # ana roota eklediğimiz static dosyayı tanıttıgımız yer
 
 # Default primary key field type

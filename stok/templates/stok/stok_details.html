@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static%}
 {% block title %} Stok Details {% endblock%}
 
 
@@ -12,7 +12,23 @@
                 {% include 'partials/_categories.html  '%}
             </div>
             <div class="col-9">
-                <h1>Stok Details: {{ id }}</h1>
+                <div class="card mb-3">
+                    <div class="row">
+                        <div class="col-md-3">
+                            <img src="{{ stok.image.url}}" alt="" class="img-fluid">
+                        </div>
+                        <div class="col-md-9">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {{ stok.title}} 
+                                </h5>
+                                <p class="card-text">{{ stok.description}}</p>
+                                </h5>
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
                 <hr>
 
             </div>

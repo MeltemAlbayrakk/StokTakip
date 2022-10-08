@@ -1,5 +1,8 @@
+from re import S
 from django.http.response import HttpResponse
 from django.shortcuts import render
+from stok.models import Stok
+
 
 data={
     "stoks":[
@@ -34,17 +37,19 @@ data={
 
 def index(request):
     context ={
-        "stoks":data["stoks"]
+        "stoks": Stok.objects.filter(is_active=True,is_home=True)
     }
     return render(request,"stok/index.html",context)
 
 def stoks(request):
     context ={
-        "stoks":data["stoks"]
+        "stoks":Stok.objects.filter(is_active=True)
     }
     return render(request,"stok/stoks.html",context)
 
-def stok_details(request,id):
+def stok_details(request,slug):
+
+    stok=Stok.objects.get(slug=slug)
     return render(request,"stok/stok_details.html",{
-        "id":id
+        "stok": stok
     })

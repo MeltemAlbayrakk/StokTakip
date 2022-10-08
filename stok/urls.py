@@ -12,8 +12,8 @@ urlpatterns = [
     path("",views.index,name="home"),
     path("index",views.index),
     path("stoks",views.stoks,name="stoks"),
-    path("stoks/<int:id>",views.stok_details,name="stok_details"),
+    path("stoks/<slug:slug>",views.stok_details,name="stok_details"),
     
 
-]
+] 
 
