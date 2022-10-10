@@ -13,7 +13,7 @@
                     </a>   
                     
                 </h5>
-                <p class="card-text">{{ stok.description}}</p>
+                <p class="card-text">{{ stok.description|striptags|slice:"0:50"}}</p>
                 </h5>
             </div>
         </div>

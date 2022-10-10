@@ -12,6 +12,7 @@ urlpatterns = [
     path("",views.index,name="home"),
     path("index",views.index),
     path("stoks",views.stoks,name="stoks"),
+    path("category/<slug:slug>",views.stoks_by_category, name="stoks_by_category"),
     path("stoks/<slug:slug>",views.stok_details,name="stok_details"),
     
 
