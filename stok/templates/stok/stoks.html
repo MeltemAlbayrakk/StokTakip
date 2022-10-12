@@ -13,11 +13,15 @@
         <div class="col-9">
             <h1>All Stoks</h1>
             <hr>
-            {% for stok in stoks %}
-                {% if stok.is_active %}
-                    {% include 'stok/partials/_stok.html'  %}
-                {% endif %}
-            {% endfor %}
+            {% if stoks|length > 0 %}
+                {% for stok in stoks %}
+                    {% if stok.is_active %}
+                        {% include 'stok/partials/_stok.html'  %}
+                    {% endif %}
+                {% endfor %}
+                {% else %}
+            <div class=" alert alert-warning"> No Stoks</div>
+            {% endif %}
         </div>
 
 

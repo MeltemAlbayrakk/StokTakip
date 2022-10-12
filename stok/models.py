@@ -4,6 +4,19 @@ from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField 
 
+
+class Category(models.Model):
+    name=models.CharField(max_length=150)
+    slug= models.SlugField(null=False, blank=True, unique =True, db_index=True,editable=False)
+
+
+    def save(self, *args,**kwargs):
+        self.slug =slugify(self.name)
+        super().save(*args,**kwargs)
+
+    def __str__(self):
+        return f"{self.name}"
+
 class Stok(models.Model):
     title = models.CharField(max_length=200)
     image = models.ImageField(upload_to="stoks")
@@ -11,6 +24,8 @@ class Stok(models.Model):
     is_active = models.BooleanField(default=False)
     is_home= models.BooleanField(default=False)
     slug= models.SlugField(null= False, blank=True, unique= True, db_index=True, editable=False)
+    categories = models.ManyToManyField(Category, blank=True)
+
     # hicbir satırda bos deger kabul edilmedigi icin yenı bır sütun eklenirse sorun olusur
 
 
@@ -24,14 +39,3 @@ class Stok(models.Model):
 
 
 
-class Category(models.Model):
-    name=models.CharField(max_length=150)
-    slug= models.SlugField(null=False, blank=True, unique =True, db_index=True,editable=False)
-
-
-    def save(self, *args,**kwargs):
-        self.slug =slugify(self.name)
-        super().save(*args,**kwargs)
-
-    def __str__(self):
-        return f"{self.name}"

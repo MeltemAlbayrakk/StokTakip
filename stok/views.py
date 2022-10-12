@@ -28,4 +28,10 @@ def stok_details(request,slug):
     })
 
 def stoks_by_category(request, slug):
-    pass
+    context ={
+        "stoks": Category.objects.get(slug=slug).stok_set.filter(is_active=True),        # "stoks":Stok.objects.filter(is_active=True, category__slug=slug ),
+        "categories": Category.objects.all(),
+        "selected_category": slug
+    }
+    return render(request,"stok/stoks.html",context)
+
