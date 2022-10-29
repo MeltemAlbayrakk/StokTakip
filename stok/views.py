@@ -43,7 +43,7 @@ def cihaz_ekle(request):
 
     if request.method == "POST":
         marka_model = request.POST["marka_model"]
-        # image = request.POST["image"]
+        image = request.POST["image"]
         description = request.POST["description"]
         SeriNo = request.POST["SeriNo"]
         personel = request.POST["personel"]
@@ -52,10 +52,8 @@ def cihaz_ekle(request):
         cikis_tarihi = request.POST["cikis_tarihi"]
 
 
-
-
         
-        cihaz =Cihaz.objects.create(marka_model=marka_model,description=description,SeriNo=SeriNo,
+        cihaz =Cihaz.objects.create(marka_model=marka_model,image=image,description=description,SeriNo=SeriNo,
         personel=personel,status=status,giris_tarihi=giris_tarihi,cikis_tarihi=cikis_tarihi)
         cihaz.save()
         return redirect("stoks")

@@ -30,8 +30,8 @@
                <input type="text" class="form-control" name="marka_model" value="{{ marka_model }}">
             </div>
             <div class="mb-3">
-               <label for="fotograf" class="form-label">Fotoğraf</label>
-               <input type="file" class="form-control" name="fotograf" value="{{ image }}">
+               <label for="image" class="form-label">Fotoğraf</label>
+               <input type="file" class="form-control" name="image" value="{{ image }}">
             </div>
             <div class="mb-3">  
                <div class="col"> 
@@ -71,11 +71,11 @@
             <div class="row mb-3">  
                <div class="col"> 
                   <label for="giris_tarihi" class="form-label">Cihazın Giriş Tarihi</label>
-                  <input type="datetime-local" class="form-control" name="giris_tarihi" value="{{ giris_tarihi|date:"Y M d D" }}">
+                  <input type="date" class="form-control" name="giris_tarihi" value="{{ giris_tarihi|date:"YYYY mm dd" }}">
                </div>
                <div class="col "> 
                   <label for="cikis_tarihi" class="form-label">Cihazın Çıkış Tarihi</label>
-                  <input type="datetime-local" class="form-control" name="cikis_tarihi" value="{{ cikis_tarihi|date:"Y M d D" }}">
+                  <input type="date" class="form-control" name="cikis_tarihi" value="{{ cikis_tarihi|date:"YYYY mm dd" }}">
                </div>
             </div>
             <div class="row mb-3">  

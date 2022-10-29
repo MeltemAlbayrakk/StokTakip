@@ -108,7 +108,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'tr-tr'
+LANGUAGE_CODE = 'en-en'
 
 TIME_ZONE = 'UTC'
 
@@ -133,11 +133,3 @@ MEDIA_URL = "/images/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-STATUS_CHOICES = (
-    (1, ("Not relevant")),
-    (2, ("Review")),
-    (3, ("Maybe relevant")),
-    (4, ("Relevant")),
-    (5, ("Leading candidate"))
-)

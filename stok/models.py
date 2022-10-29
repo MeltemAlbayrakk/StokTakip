@@ -1,9 +1,11 @@
+import datetime
 from email.policy import default
 from random import choices
 from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField 
-from datetime import datetime
+from datetime import date , datetime
+
 
 
 
@@ -36,11 +38,11 @@ class Cihaz(models.Model):
     SeriNo = models.CharField(max_length=200)
     personel = models.CharField(max_length=200)
     status = models.BooleanField(null=True)
-    giris_tarihi = models.DateField(blank=True,null=True,default=datetime.date)
-    cikis_tarihi = models.DateField(blank=True,null=True,default=datetime.date)
-    slug= models.SlugField(null= False, blank=True, unique= True, db_index=True, editable=False)
+    giris_tarihi = models.DateField(blank=True,null=True)
+    cikis_tarihi = models.DateField(blank=True,null=True)
+    slug= models.SlugField(null= False, blank=True, db_index=True, editable=False)
     categories = models.ManyToManyField(Category, blank=True)
-    bolums = models.ForeignKey(Bolum, on_delete=models.CASCADE)
+    bolums = models.ForeignKey(Bolum, on_delete=models.CASCADE,null=True)
     # hicbir satÄ±rda bos deger kabul edilmedigi icin yenÄ± bÄ±r sÃ¼tun eklenirse sorun olusur
 
     def __str__(self):
