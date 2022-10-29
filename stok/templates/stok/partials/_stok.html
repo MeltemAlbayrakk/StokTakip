@@ -8,12 +8,14 @@
         <div class="col-md-9">
             <div class="card-body">
                 <h5 class="card-title">
-                    <a href="{% url 'stok_details' stok.slug %}">
-                       {{ stok.title}} 
-                    </a>   
                     
-                </h5>
-                <p class="card-text">{{ stok.description|striptags|slice:"0:50"}}</p>
+                    
+
+                    <a href="{% url 'stok_details' stok.slug %}">
+                    {{ stok.marka_model }}  
+                    </a> 
+                    <p class="card-text">{{ stok.description|safe|striptags|slice:"0:50"}}</p>
+                    
                 </h5>
             </div>
         </div>

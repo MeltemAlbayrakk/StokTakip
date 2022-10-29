@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{% static 'stok/css/style.css' %}">
 {% endblock %}
 
-{% block title %} Homepage {% endblock%}
+{% block title %} Ana Sayfa {% endblock%}
 
 {% block content %}
 
@@ -17,13 +17,15 @@
             {% include 'partials/_categories.html  '%}
         </div>
         <div class="col-9">
-            <h1>Homepage</h1>
-            <hr>
+        <h1>Ana Sayfa</h1>
+        <hr>
+
+        {% if stoks|length > 0 %}
             {% for stok in stoks %}
-                {% if stok.is_home and stok.is_active %}
                     {% include 'stok/partials/_stok.html'  %}
-                {% endif %}
             {% endfor %}
+
+        {% endif %}
 
         </div>
 

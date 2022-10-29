@@ -1,0 +1,177 @@
+
+{% extends "base.html" %}
+{% load static%}
+
+{% block css_files%}
+<link rel="stylesheet" href="{% static 'stok/css/style.css' %}">
+{% endblock %}
+
+{% block title %} Cihaz Ekle {% endblock%}
+
+
+{% block content %}
+
+
+<div class="container mt-3">
+   <div>
+      <h1>Cihaz Ekle</h1> 
+         <hr>
+         <form method="POST">
+            {% csrf_token %}
+
+            {% if error %}
+            <div classs="alert alert-danger">
+               {{error}}
+            </div>
+            {% endif %}
+            <div class="mb-3">
+   
+               <label for="marka_model" class="form-label">Cihazın Markası ve Modeli</label>
+               <input type="text" class="form-control" name="marka_model" value="{{ marka_model }}">
+            </div>
+            <div class="mb-3">
+               <label for="fotograf" class="form-label">Fotoğraf</label>
+               <input type="file" class="form-control" name="fotograf" value="{{ image }}">
+            </div>
+            <div class="mb-3">  
+               <div class="col"> 
+                  <label for="description" class="form-label"> Description </label>
+               <input type="textarea" class="form-control" name="description" value="{{ description }}">
+               </div>
+            </div>
+            <div class="mb-3">  
+               <div class="col"> 
+                  <label for="status" class="form-label"> Durum </label>
+                  <br>
+                  <select for="status" class="form-control" name="status" value="{{ status }}">
+                     <option value="1" selected="selected">
+                        Servise Alındı
+                     </option>
+                     <option value="2">
+                        İşlem Görüyor
+                     </option>
+                     <option value="3">
+                        İşlem Tamamlandı
+                     </option>
+                     </select>
+               </div>
+            </div>
+
+            <div class="row mb-3">
+               <div class="col"> 
+                  <label for="SeriNo" class="form-label">Seri Numarası</label>
+                  <input type="text" class="form-control" name="SeriNo" value="{{ SeriNo }}">
+               </div>
+               <div class="col"> 
+                  <label for="personel" class="form-label">Personel</label>
+                  <input type="text" class="form-control" name="personel" value="{{ personel }}">
+               </div>
+            </div>
+
+            <div class="row mb-3">  
+               <div class="col"> 
+                  <label for="giris_tarihi" class="form-label">Cihazın Giriş Tarihi</label>
+                  <input type="datetime-local" class="form-control" name="giris_tarihi" value="{{ giris_tarihi|date:"Y M d D" }}">
+               </div>
+               <div class="col "> 
+                  <label for="cikis_tarihi" class="form-label">Cihazın Çıkış Tarihi</label>
+                  <input type="datetime-local" class="form-control" name="cikis_tarihi" value="{{ cikis_tarihi|date:"Y M d D" }}">
+               </div>
+            </div>
+            <div class="row mb-3">  
+               <div class="col"> 
+                  <label for="giris_tarihi" class="form-label">Fakülte</label>
+                  <br>
+                  <select for="bolum" class="form-control" name="bolum" value="{{ bolum }}">
+
+                     <option value="1">
+                        Eğitim Fakültesi
+                     </option>
+                     <option value="2">
+                        Bilgisayar ve Bilişim Bilimleri Fakültesi
+                     </option>
+                     <option value="4">
+                        Diş Hekimliği Fakültesi
+                     </option>
+                     <option value="5">
+                        Fen-Edebiyat Fakültesi
+                     </option>
+                     <option value="6">
+                        Hukuk Fakültesi
+                     </option>
+                     <option value="7">
+                        İlahiyat Fakültesi
+                     </option>
+                     <option value="8">
+                        İletişim Fakültesi
+                     </option>
+                     <option value="9">
+                        İşletme Fakültesi
+                     </option>
+                     <option value="10">
+                        Mühendislik Fakültesi
+                     </option>
+                     <option value="11">
+                        Sağlık Bilimleri Fakültesi
+                     </option>
+                     <option value="12">
+                        Sanat Tasarım ve Mimarlık Fakültesi
+                     </option>
+                     <option value="13">
+                        Siyasal Bilgiler Fakültesi
+                     </option>
+                     <option value="14">
+                        Tıp Fakültesi
+                     </option>
+
+                  </select>
+               </div>
+               <div class="col "> 
+                  <label for="cikis_tarihi" class="form-label">Kategori</label>
+                  <br>
+                  <select for="category" class="form-control" name="category" value="{{ category }}">
+
+                     <option value="1" >
+                        Monitör
+                     </option>
+                     <option value="2">
+                        Kasa
+                     </option>
+                     <option value="3">
+                        Dizüstü Bilgisayar
+                     </option>
+                     <option value="4">
+                        All In One Bilgisayar
+                     </option>
+                     <option value="5">
+                        Projeksiyon Cihazı
+                     </option>
+                     <option value="6">
+                        Yazıcı
+                     </option>
+                     
+                     
+
+                  </select>
+               </div>
+            </div>
+   
+            <input type="submit" value="Cihaz Ekle" class="btn btn-primary">
+            
+         </form>
+
+   
+      </div>         
+   </div>
+
+
+{% endblock%}
+
+
+
+
+
+
+{% comment %} html kodu yazılacak ve icinde
+<a class="liste kodları"  
+href="{% url 'cihaz_ekle' buraya slug bilgisi gelcek %}"></a>  {% endcomment %}

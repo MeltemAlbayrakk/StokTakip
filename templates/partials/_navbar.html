@@ -1,34 +1,37 @@
 
     <nav class="navbar navbar-dark bg-primary navbar-expand-lg">
         <div class="container">
-            <a  class="navbar-brand" href="{% url 'home'%}">Stokapp</a>
+            <a  class="navbar-brand" href="{% url 'home'%}">Stok Takip</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbar">
                 <ul class="navbar-nav me-auto ">
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home'%}">Home</a>
+                        <a class="nav-link" href="{% url 'home'%}">Ana Sayfa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'stoks'%}">Stoks</a>
+                        <a class="nav-link" href="{% url 'stoks'%}">Cihazlar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'cihaz_ekle'%}">Cihaz Ekle</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav ms-auto ">
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'logout' %}">Log out</a>
+                            <a class="nav-link" href="{% url 'logout' %}">Çıkış Yap</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="">Welcome, {{ user.get_full_name|title }}</a>
+                            <a class="nav-link" href="">Hoşgeldiniz, {{ user.get_full_name|title }}</a>
                         </li>
 
                     {% else %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'login' %}">Log in</a>
+                            <a class="nav-link" href="{% url 'login' %}">Giriş Yap</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'register' %}">Register</a>
+                            <a class="nav-link" href="{% url 'register' %}">Kayıt ol</a>
                         </li>   
                     {% endif %}
                     

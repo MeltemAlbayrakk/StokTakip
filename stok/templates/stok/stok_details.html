@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% load static%}
-{% block title %} Stok Details {% endblock%}
+{% block title %} Cihaz Detayları {% endblock%}
 
 
 {% block content %}
@@ -15,12 +15,15 @@
                         <div class="col-md-12">
                             <div class="card-body">
                                 <h1 class="card-title h3 mb-3">
-                                    {{ stok.title|title }} 
+                                    {{ stok.marka_model|title }} 
                                 </h1>
                                     <img src="{{ stok.image.url}}" alt="" 
-                                    class="img-fluid"  style="float:left; margin-right:20px; margin-bottom:20px;" >
+                                    class="img-fluid"  style="float:left; max-width:30%;
+                                        margin-right:20px; margin-bottom:20px;" >
                                 <p class="card-text">{{ stok.description|safe}}</p>
-                                </h5>
+                                <br>
+                                <p class="card-text">{{ stok.}} </p>
+                              
                             </div>
                         </div>
                 
@@ -29,5 +32,6 @@
                 <hr>
 
             </div>
+        </div>
     
 {% endblock %}
