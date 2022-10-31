@@ -1,5 +1,6 @@
 
 from email.utils import parsedate_to_datetime
+from unicodedata import category
 from django.http.response import HttpResponse
 from django.shortcuts import render,redirect
 from stok.models import Bolum, Category, Cihaz
@@ -50,12 +51,22 @@ def cihaz_ekle(request):
         status = request.POST["status"]
         giris_tarihi = request.POST["giris_tarihi"]
         cikis_tarihi = request.POST["cikis_tarihi"]
+  
 
 
         
-        cihaz =Cihaz.objects.create(marka_model=marka_model,image=image,description=description,SeriNo=SeriNo,
+        cihaz = Cihaz.objects.create(marka_model=marka_model,image=image,description=description,SeriNo=SeriNo,
         personel=personel,status=status,giris_tarihi=giris_tarihi,cikis_tarihi=cikis_tarihi)
         cihaz.save()
         return redirect("stoks")
         
     return render(request,"stok/cihaz_ekle.html")
+
+
+def cihaz_sil(request,slug):
+
+    stok=Cihaz.objects.get(slug=slug)
+    # if  request.method =="POST":
+    #     stok.delete()
+    return render(request,"stok/stoks.html")
+    
