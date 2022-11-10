@@ -41,8 +41,8 @@ class Cihaz(models.Model):
     giris_tarihi = models.DateField(blank=True,null=True)
     cikis_tarihi = models.DateField(blank=True,null=True)
     slug= models.SlugField(null= False, unique=True ,blank=True, db_index=True, editable=False)
-    categories = models.ManyToManyField(Category, blank=True)
-    bolum = models.ForeignKey(Bolum, on_delete=models.CASCADE,null=True)
+    category = models.ForeignKey(Category,on_delete=models.SET_NULL, null=True)
+    bolum = models.ForeignKey(Bolum,on_delete=models.SET_NULL, null=True)
     # hicbir satÄ±rda bos deger kabul edilmedigi icin yenÄ± bÄ±r sÃ¼tun eklenirse sorun olusur
 
     def __str__(self):

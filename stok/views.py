@@ -1,5 +1,3 @@
-
-from email.utils import parsedate_to_datetime
 from unicodedata import category
 from django.http.response import HttpResponse
 from django.shortcuts import render,redirect
@@ -12,14 +10,14 @@ from datetime import datetime
 
 def index(request):
     context ={
-        "stoks":Cihaz.objects.all(),
+        "stoks":Cihaz.objects.filter(status=1),
         "categories": Category.objects.all()
     }
     return render(request,"stok/index.html",context)
 
 def stoks(request):
     context ={
-        "stoks":Cihaz.objects.all(),
+        "stoks":Cihaz.objects.filter(),
         "categories": Category.objects.all()
     }
     return render(request,"stok/stoks.html",context)
@@ -33,7 +31,7 @@ def stok_details(request,slug):
 
 def stoks_by_category(request, slug):
     context ={
-        "stoks": Category.objects.get(slug=slug).stok_set.all(),        
+        "stoks": Cihaz.objects.filter(category__slug=slug),        
         "categories": Category.objects.all(),
         "selected_category": slug
     }

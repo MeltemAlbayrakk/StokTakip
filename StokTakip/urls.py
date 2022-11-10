@@ -24,7 +24,8 @@ urlpatterns = [
 
     #bu kodla stok app icindeki urlsi ana uygulamaya dahil etmis olduk
     path('',include('stok.urls')),
-    path('account/',include('account.urls'))
+    path('account/',include('account.urls')),
+    path(" ",include("stok.urls")),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
