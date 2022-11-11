@@ -32,7 +32,11 @@
             </div>
         </div>
 
-        <a href="partials/cihaz_sil" class="btn btn-primary "  >Cihazı Sil</a> 
+
+        <a href="{% url 'cihaz_sil' stok.slug %}" class="btn btn-primary ">Cihazı sil</a> 
+        <a href="{% url 'cihaz_guncelle' stok.slug %}" class="btn btn-primary ">Cihazı güncelle</a> 
+
+
     </div>
  
     

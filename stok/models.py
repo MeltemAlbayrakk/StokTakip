@@ -5,6 +5,7 @@ from django.db import models
 from django.utils.text import slugify
 from ckeditor.fields import RichTextField 
 from datetime import date , datetime
+from django.utils.translation import gettext_lazy as _
 
 
 
@@ -32,12 +33,21 @@ class Bolum(models.Model):
         return f"{self.bolumAdi}"
 
 class Cihaz(models.Model):
+    class StatusChoices(models.TextChoices):
+        SERVIS = "servise_alindi", _("Servise alındı")
+        BEKLEMEDE = "bekleme", _("Beklemede")
+        ONARIMDA = "onarimda", _("Onarılıyor")
+
+
+
+
     marka_model = models.CharField(max_length=200)
     image = models.ImageField(upload_to="stoks")
     description= RichTextField()
     SeriNo = models.CharField(max_length=200)
     personel = models.CharField(max_length=200)
-    status = models.CharField(max_length=200,null=True)
+    status = models.CharField(max_length=200,null=True,         choices=StatusChoices.choices,
+)
     giris_tarihi = models.DateField(blank=True,null=True)
     cikis_tarihi = models.DateField(blank=True,null=True)
     slug= models.SlugField(null= False, unique=True ,blank=True, db_index=True, editable=False)

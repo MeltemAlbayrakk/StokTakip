@@ -1,4 +1,4 @@
-{% extends 'base/base.html' %}
+{% extends "base.html" %}
 
 {% block content %}
     <div class="container">
@@ -12,16 +12,14 @@
                         <div class="form-row">
                             <div class="alert alert-warning">
                                 Bu bilgileri silmek istediğine emin misin ? 
-                                <br/> Ürün adı: {{ stok.marka_model }}
-                                <br/>Ürün açıklaması: {{ stok.description }}
-                                <br/>Ürün seri numarası{{ stok.SeriNo }}
-
-
-
+                                
                             </div>
+                            <br/> Ürün adı: {{ stok.marka_model }}
+                            <br/>Ürün açıklaması: {{ stok.description }}
+                            <br/>Ürün seri numarası{{ stok.SeriNo }}
                         </div>
-                        <button type="submit" class="btn btn-danger">
-                            <span class="glyphicon glyphicon-trash"></span>
+                        <button type="submit">
+                            <span>cihaz_sil</span>
                         </button>
                     </form>
                 </div>

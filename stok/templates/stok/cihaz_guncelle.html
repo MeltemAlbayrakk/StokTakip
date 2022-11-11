@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %} Cihazı Güncelle {% endblock%}
+
+{% block content %}
+
+<div class="form-group">
+    <form method="post">
+        {% csrf_token %}
+        {% crispy form %}
+        {{form.as_p }}
+
+        <button class="btn btn-secondary"> Güncelle </button>
+
+ 
+
+    </form>
+</div>
+
+
+{% endblock%}
