@@ -1,15 +1,29 @@
 from django import forms
-from .models import Cihaz
+from .models import Devices
+from django.contrib.auth.models import User
 
 
 class StokForm(forms.ModelForm):
+    def __init__(self, user=None, **kwargs):
+        super(StokForm, self).__init__(**kwargs)
+
+        self.fields["worker"].queryset = User.objects.filter(is_staff=False)
+
     """Form for the image model"""
+
     class Meta:
-        model = Cihaz
-        fields = ('marka_model', 'image','description','personel',"category",'SeriNo','status','giris_tarihi','cikis_tarihi','bolum')
-        
-class StokForm2(forms.ModelForm):
-    """Form for the image model"""
-    class Meta:
-        model = Cihaz
-        fields = ('marka_model', 'image','description','personel',"category",'SeriNo','status','giris_tarihi','cikis_tarihi','bolum')
+        model = Devices
+        fields = (
+            "brand",
+            "image",
+            "description",
+            "serialnum",
+            "employee",
+            "category",
+            "status",
+            "arrival_date",
+            "exit_date",
+            "department",
+            "worker",
+            
+        )

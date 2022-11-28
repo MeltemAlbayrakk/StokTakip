@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
 
 {% block title %} Cihazı Güncelle {% endblock%}
@@ -6,12 +7,12 @@
 {% block content %}
 
 <div class="form-group">
-    <form method="post">
+    <form action="{% url 'cihaz_guncelle' form.instance.slug %}"  , method="post" , enctype="multipart/form-data">
         {% csrf_token %}
-        {% crispy form %}
-        {{form.as_p }}
 
-        <button class="btn btn-secondary"> Güncelle </button>
+            {% crispy form %}
+
+        <button type="submit" class="btn btn-secondary"> Güncelle </button>
 
  
 
