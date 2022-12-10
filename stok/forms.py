@@ -4,16 +4,10 @@ from django.contrib.auth.models import User
 
 
 class StokForm(forms.ModelForm):
-    def __init__(self, user=None, **kwargs):
-        super(StokForm, self).__init__(**kwargs)
-
-        self.fields["worker"].queryset = User.objects.filter(is_staff=False)
-
-    """Form for the image model"""
-
+  
     class Meta:
         model = Devices
-        fields = (
+        fields = [
             "brand",
             "image",
             "description",
@@ -25,5 +19,14 @@ class StokForm(forms.ModelForm):
             "exit_date",
             "department",
             "worker",
+            ]
+        
+       
+        
             
-        )
+            
+        
+
+        
+
+        

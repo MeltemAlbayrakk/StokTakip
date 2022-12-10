@@ -57,17 +57,17 @@ class Status(models.Model):
 
 
 class Devices(models.Model):
-    brand = models.CharField(max_length=50, verbose_name="XX")
-    image = models.ImageField(upload_to="stoks")
+    brand = models.CharField(max_length=50, verbose_name="MARKA-MODEL")
+    image = models.ImageField(upload_to="stoks",verbose_name="FOTOĞRAF")
     serialnum = models.CharField(max_length=20)
-    description = RichTextField(verbose_name="XX")
-    arrival_date = models.DateField(blank=True,null=True)
-    exit_date = models.DateField(blank=True,null=True)
-    employee = models.ForeignKey(Employees, on_delete=models.SET_NULL, null=True)
-    category = models.ForeignKey(Categories, on_delete=models.SET_NULL, null=True)
-    department = models.ForeignKey(Departments, on_delete=models.SET_NULL, null=True)
-    worker = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    status = models.ForeignKey(Status, on_delete=models.SET_NULL, null=True)
+    description = RichTextField(verbose_name="AÇIKLAMA")
+    arrival_date = models.DateField(null=True,verbose_name="GİRİŞ TARİHİ")
+    exit_date = models.DateField(blank=True,null=True,verbose_name="ÇIKIŞ TARİHİ")
+    employee = models.ForeignKey(Employees, on_delete=models.SET_NULL, null=True,verbose_name="PERSONEL")
+    category = models.ForeignKey(Categories, on_delete=models.SET_NULL, null=True,verbose_name="KATEGORİ")
+    department = models.ForeignKey(Departments, on_delete=models.SET_NULL, null=True,verbose_name="FAKÜLTE")
+    worker = models.ForeignKey(User, on_delete=models.SET_NULL, null=True,verbose_name="TEKNİKER")
+    status = models.ForeignKey(Status, on_delete=models.SET_NULL, null=True,verbose_name="DURUM")
     slug = models.SlugField(
         null=False, unique=True, blank=True, db_index=True
     )

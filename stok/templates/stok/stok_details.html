@@ -17,9 +17,11 @@
                                 <h1 class="card-title h3 mb-3">
                                     {{ stok.brand|title }} 
                                 </h1>
-                                    <img src="{{ stok.image.url }}" alt="" 
-                                    class="img-fluid"  style="float:left; max-width:30%;
-                                        margin-right:20px; margin-bottom:20px;" >
+                                    {% if stok.image %}
+                                        <img src="{{ stok.image.url }}" alt="" 
+                                        class="img-fluid"  style="float:left; max-width:30%;
+                                            margin-right:20px; margin-bottom:20px;" >
+                                    {% endif %}
                                 <p class="card-text">{{ stok.description|safe}}</p>
 
                             </div>
