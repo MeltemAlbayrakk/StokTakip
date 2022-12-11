@@ -77,5 +77,5 @@ class Devices(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.brand)
-        print(50)
+
         super().save(*args, **kwargs)

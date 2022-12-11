@@ -10,7 +10,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap" rel="stylesheet">
-   
     <style>
         * {
             font-family: 'Ropa Sans', sans-serif;
@@ -32,18 +31,11 @@
     {% include 'partials/_navbar.html' %}
                         
     {% block content %}    {% endblock%}
-
-
     <script src="{% static 'js/bootstrap.min.js' %}" ></script>
     <script src="{% static 'js/base.js' %}"></script>
  
         </script>
 
     {% block js_files %} {% endblock %}
-    
-
-
-
-
 </body>
 </html>

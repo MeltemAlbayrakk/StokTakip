@@ -1,9 +1,7 @@
 {% load static %}
-
 <div class="card mb-3">
     <div class="row">
-        <div class="col-md-3">
-            
+        <div class="col-md-3"> 
             <a href="{% url 'stok_details' stok.slug %}">
                 <img src="{{ stok.image.url }}" alt="" class="img-fluid ">
             </a> 
@@ -20,6 +18,5 @@
                 </h5>
             </div>
         </div>
-
     </div>
 </div>

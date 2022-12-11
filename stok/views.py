@@ -55,25 +55,6 @@ def cihaz_ekle(request):
     return render(request,"stok/cihaz_ekle.html", {'form': form})
 
 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    # if request.method == 'POST':
-    #     form = StokForm(request.POST)
-    #     if form.is_valid():
-    #         form.save()
-
-    # else:
-    #     form = StokForm()
-        
-    # return render(request,"stok/cihaz_ekle.html", {'form': form})
-
 @login_required(login_url='login')
 def cihaz_sil(request, slug):
     stok = Devices.objects.get(slug=slug)

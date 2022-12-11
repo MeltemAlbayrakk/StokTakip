@@ -2,28 +2,23 @@
 {% load static %}
 {% load crispy_forms_tags %}
 
-
 {% block css_files%}
     <link rel="stylesheet" href="{% static 'stok/css/style.css' %}">
 {% endblock %}
-{% block title %} Cihazı Güncelle {% endblock%}
 
+{% block title %} Cihazı Güncelle {% endblock%}
 {% block content %}
 
     <div class="container card  p-5 w-50">
-        <form action="{% url 'cihaz_guncelle' form.instance.slug %}" , method="POST" , enctype="multipart/form-data">
+        <form action="{% url 'cihaz_guncelle' form.instance.slug %}" , 
+        method="POST" , enctype="multipart/form-data">
             {% csrf_token %}
-
             {{ form |crispy }}
-
             <input type="submit" value="Güncelle" class="btn btn-primary">
-
         </form>
     </div>
 
-
 {% endblock%}
 {% block js_files %}
-
     <script src="{% static 'account/js/script.js' %}"></script>
 {% endblock %}
