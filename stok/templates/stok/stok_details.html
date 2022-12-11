@@ -14,15 +14,22 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card-body">
-                                <h1 class="card-title h3 mb-3">
-                                    {{ stok.brand|title }} 
-                                </h1>
+                                <h1 id="detail-title" class="card-title h3 mb-3">{{ stok.brand|title}} </h1>
                                     {% if stok.image %}
                                         <img src="{{ stok.image.url }}" alt="" 
-                                        class="img-fluid"  style="float:left; max-width:30%;
+                                        class="img-fluid"  style="float:left; max-width:25%;
                                             margin-right:20px; margin-bottom:20px;" >
                                     {% endif %}
-                                <p class="card-text">{{ stok.description|safe}}</p>
+                                
+                                <p class="card-text">Seri Numarası:{{ stok.serialnum|safe}}</p><hr>
+                                <p class="card-text">Geliş Tarihi:{{ stok.arrival_date|safe}}</p><hr>
+                                <p class="card-text">Çıkış Tarihi:{{ stok.exit_date|safe}}</p><hr>
+                                <p class="card-text">Personel:{{ stok.employee|safe}}</p><hr>
+                                <p class="card-text">Çalışan:{{ stok.worker|safe}}</p><hr>
+                                <p class="card-text">Açıklama:{{ stok.description|safe}}</p><hr>
+
+
+
 
                             </div>
                         </div>

@@ -21,6 +21,10 @@ class StokForm(forms.ModelForm):
             "worker",
             ]
         
+        
+        
+    
+        
        
         
             

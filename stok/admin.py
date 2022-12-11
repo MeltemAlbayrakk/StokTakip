@@ -14,6 +14,7 @@ class DevicesAdmin(admin.ModelAdmin):
     )
     list_editable = ("status", "arrival_date", "exit_date")
     search_fields = ("brand", "description")
+   
 
     def selected_categories(self, obj):
         html = "<ul>"
@@ -23,11 +24,20 @@ class DevicesAdmin(admin.ModelAdmin):
         html += "</ul>"
         return mark_safe(html)
 
+class EmployeeAdmin(admin.ModelAdmin):
+    list_display = (
+        "emp_fname",
+        "emp_lname",
+        "emp_tel",
+        "department",
+        "emp_email",
+    )
+   
 
 admin.site.register(Devices, DevicesAdmin)
 admin.site.register(Categories)
 admin.site.register(Departments)
-admin.site.register(Employees)
+admin.site.register(Employees,EmployeeAdmin)
 admin.site.register(Status)
 
 

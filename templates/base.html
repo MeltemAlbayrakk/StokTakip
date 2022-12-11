@@ -7,9 +7,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-<!-- CSS only -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ropa+Sans&display=swap" rel="stylesheet">
+   
+    <style>
+        * {
+            font-family: 'Ropa Sans', sans-serif;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        a{
+            font-size:20px;
+        }
+        #detail-title{
+            text-align: center;
+        }
+        </style>
   {% block css_files %} {% endblock %}
-<!-- settingste static tanımılı oldugu ıcın boyle yaptık -->
     <title>
         {% block title %} {% endblock %}|Stok Takip</title>
 </head>
@@ -21,8 +36,11 @@
 
     <script src="{% static 'js/bootstrap.min.js' %}" ></script>
     <script src="{% static 'js/base.js' %}"></script>
-<!-- JavaScript Bundle with Popper -->
+ 
+        </script>
+
     {% block js_files %} {% endblock %}
+    
 
 
 

@@ -1,5 +1,10 @@
 {% extends "base.html" %}
+{% load static%}
 
+{% block css_files%}
+    <link rel="stylesheet" href="{% static 'stok/css/style.css' %}">
+{% endblock %}
+{% block title %} Cihazı Sil {% endblock%}
 {% block content %}
     <div class="container">
         <div class="row"></div>
@@ -11,12 +16,14 @@
                         {% csrf_token %}
                         <div class="form-row">
                             <div class="alert alert-warning">
-                                Bu bilgileri silmek istediğine emin misin ? 
+                                Bu Cihazı silmek istediğine emin misin ? 
                                 
                             </div>
-                            <br/> Ürün adı: {{ stok.brand }}
-                            <br/>Ürün açıklaması: {{ stok.description }}
-                            <br/>Ürün seri numarası{{ stok.serialnum }}
+                            <img src="{{ stok.image.url }}" alt="" class="img-fluid" style="float:left; max-width:30%;
+                            margin-right:20px; margin-bottom:20px;">
+                            <h5> Ürün adı: {{ stok.brand|title }}</h5>
+                            <h5>Ürün açıklaması: {{ stok.description|safe }}</h5>
+                            <h5>Ürün seri numarası: {{ stok.serialnum }}</h5>
                         </div>
                         <input type="submit" value="Cihazı Sil" class="btn btn-primary"> 
                     </form>

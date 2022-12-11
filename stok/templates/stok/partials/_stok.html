@@ -3,15 +3,17 @@
 <div class="card mb-3">
     <div class="row">
         <div class="col-md-3">
-            <img src="{{ stok.image.url }}" alt="" class="img-fluid">
+            
+            <a href="{% url 'stok_details' stok.slug %}">
+                <img src="{{ stok.image.url }}" alt="" class="img-fluid ">
+            </a> 
         </div>
         <div class="col-md-9">
             <div class="card-body">
                 <h5 class="card-title">
 
-
                     <a href="{% url 'stok_details' stok.slug %}">
-                    {{ stok.brand }}  
+                    {{ stok.brand|title}}
                     </a> 
                     <p class="card-text">{{ stok.description|safe|striptags|slice:"0:50"}}</p>
                     
