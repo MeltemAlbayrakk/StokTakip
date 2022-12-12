@@ -5,7 +5,6 @@ from . import views
 from stok.views import *
 
 
-
 urlpatterns = [
     path("", views.index, name="home"),
     path("index", views.index),
